@@ -1,0 +1,17 @@
+# spring.application.name=backend
+
+# spring.jpa.database=postgresql
+# spring.jpa.hibernate.ddl-auto=create
+
+spring:
+  application:
+    name: backend
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: true
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+  config:
+    import: application-secret.yml
