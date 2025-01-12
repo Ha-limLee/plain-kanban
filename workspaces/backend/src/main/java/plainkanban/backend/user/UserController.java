@@ -16,6 +16,11 @@ public class UserController {
 
   @PostMapping(path = "/api/v1/sign-up")
   public ResponseEntity<?> signUp(@RequestBody UserDto body) {
+    var users = userService.findByEmail(body.getEmail());
+    if (!users.isEmpty()) {
+      return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    }
+
     userService.signUp(body);
     return ResponseEntity.status(HttpStatus.CREATED).build();
   }

@@ -1,5 +1,7 @@
 package plainkanban.backend.user;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -17,5 +19,9 @@ public class UserService {
         .build();
 
     userRepository.save(userEntity);
+  }
+
+  public List<UserEntity> findByEmail(String email) {
+    return userRepository.findByEmail(email);
   }
 }
