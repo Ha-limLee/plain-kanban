@@ -37,10 +37,22 @@ public class UserIntegrationTest {
         .perform(
             MockMvcRequestBuilders
                 .post("/api/v1/sign-up")
-                .contentType(MediaType.APPLICATION_JSON).content(content))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(content))
         .andExpect(
             MockMvcResultMatchers
                 .status()
                 .isCreated());
+
+    // sign up using same email
+    this.mockMvc.perform(
+        MockMvcRequestBuilders
+            .post("/api/v1/sign-up")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(content))
+        .andExpect(
+            MockMvcResultMatchers
+                .status()
+                .isConflict());
   }
 }
