@@ -2,7 +2,7 @@ name: spring test
 
 on:
   pull_request:
-    types: [ready_for_review, push]
+    types: [ready_for_review, synchronize]
 
 # Cancel any previous runs of this workflow for the same PR.
 concurrency:
