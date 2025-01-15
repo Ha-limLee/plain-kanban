@@ -24,6 +24,6 @@ jobs:
           distribution: "temurin"
           cache: "maven"
       - name: Make mvnw executable
-        run: chmod -x ./mvnw && ls -al mvnw
+        run: chmod 777 ./mvnw && ls -al mvnw
       - name: Run test
         run: bash mvnw --batch-mode --update-snapshots verify
