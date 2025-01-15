@@ -1,0 +1,27 @@
+name: spring test
+
+on:
+  pull_request:
+    types: [ready_for_review, push]
+
+# Cancel any previous runs of this workflow for the same PR.
+concurrency:
+  group: ${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./workspaces/backend
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: "temurin"
+          cache: "maven"
+      - name: Run test
+        run: chmod -x mvnw && ./mvnw --batch-mode --update-snapshots verify
