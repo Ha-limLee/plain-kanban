@@ -23,5 +23,7 @@ jobs:
           java-version: 21
           distribution: "temurin"
           cache: "maven"
+      - name: Make mvnw executable
+        run: chmod -x ./mvnw
       - name: Run test
-        run: chmod -x mvnw && ./mvnw --batch-mode --update-snapshots verify
+        run: ./mvnw --batch-mode --update-snapshots verify
