@@ -26,4 +26,4 @@ jobs:
       - name: Make mvnw executable
         run: chmod 777 ./mvnw && ls -al mvnw
       - name: Run test
-        run: bash mvnw --batch-mode --update-snapshots verify
+        run: ./mvnw --batch-mode --update-snapshots verify
