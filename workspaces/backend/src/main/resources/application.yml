@@ -14,4 +14,4 @@ spring:
     hibernate:
       ddl-auto: update
   config:
-    import: application-secret.yml
+    import: optional:application-secret.yml
